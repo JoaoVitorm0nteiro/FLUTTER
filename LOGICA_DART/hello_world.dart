@@ -1,3 +1,3 @@
 main() {
-  print('Penis');
+  print('Hello World');
 }
