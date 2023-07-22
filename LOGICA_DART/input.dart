@@ -1,0 +1,6 @@
+main(){
+
+stdin.readLineSync();
+
+
+}
