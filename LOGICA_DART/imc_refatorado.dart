@@ -4,6 +4,14 @@ main() {
   String nome = getNome();
   double peso = getPeso();
   double altura = getAltura();
+
+  double Calc_imc({required double peso, required double altura}) {
+    return peso / altura * 2;
+  }
+
+  double resultado = Calc_imc(peso: peso, altura: altura);
+
+  print('$nome seu imc: $resultado');
 }
 
 //Recebe o nome e devolve
