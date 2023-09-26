@@ -1,16 +1,6 @@
 # projeto_faculdade
 
-A new Flutter project.
+Projeto feito para ser exibido no conexão unifametro
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+25-09-2023
+![image](https://github.com/JoaoVitorm0nteiro/FLUTTER/assets/99521168/583b7c64-b09d-4a4f-bf12-69bfbd723327) 
