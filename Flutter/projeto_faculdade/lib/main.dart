@@ -1,4 +1,3 @@
-//import 'dart:html';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -63,11 +62,11 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     //container para poder dar margem ao botão começar
-                    margin: const EdgeInsets.all(30),
+                    margin: const EdgeInsets.all(40),
                     child: const Text(
-                      'Bem Vindo',
+                      'QUIZ CONEXÃO',
                       style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
@@ -77,7 +76,7 @@ class HomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const InsertName(
+                              builder: (context) => InsertName(
                                     title: 'CONEXÃO 2023',
                                   )),
                         );
@@ -96,8 +95,10 @@ class HomePage extends StatelessWidget {
 
 //SEGUNDO WIDGET
 class InsertName extends StatelessWidget {
+  final nomeInput = TextEditingController();
+
   final String title;
-  const InsertName({super.key, required this.title});
+  InsertName({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -145,13 +146,18 @@ class InsertName extends StatelessWidget {
                   //decoration:
                   //BoxDecoration(border: Border.all(color: Colors.black)),
                   margin: const EdgeInsets.all(20),
-                  child: const SizedBox(
+                  //CAMPO PARA INSERIR SEU NOME
+                  child: SizedBox(
                       height: 50,
-                      width: 150,
+                      width: 170,
                       child: TextField(
+                          controller: nomeInput,
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Insira seu nome'))),
+                              hintText: 'Insira seu nome',
+                              suffixIcon: IconButton(
+                                  onPressed: nomeInput.clear,
+                                  icon: const Icon(Icons.clear)),
+                              border: const OutlineInputBorder()))),
                 ),
                 Center(
                     child: SizedBox(
@@ -161,7 +167,9 @@ class InsertName extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => QuizStart()),
+                        MaterialPageRoute(
+                            builder: (context) => QuizStart(
+                                titulo: 'CONEXÃO 2023', nome: nomeInput)),
                       );
                     },
                   ),
@@ -175,21 +183,26 @@ class InsertName extends StatelessWidget {
 
 //3 widget
 class QuizStart extends StatefulWidget {
+  final String titulo;
+  final nome;
+  const QuizStart({Key? key, required this.titulo, required this.nome})
+      : super(key: key);
+
   @override
-  State<QuizStart> createState() {
-    return QuizStartStart();
-  }
+  State<QuizStart> createState() => QuizStartStart();
 }
 
 class QuizStartStart extends State<QuizStart> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Column(
-          children: <Widget>[],
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.titulo),
         ),
-      ),
-    );
+        body: Center(
+            child: Text(
+          widget.nome.text,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        )));
   }
 }
